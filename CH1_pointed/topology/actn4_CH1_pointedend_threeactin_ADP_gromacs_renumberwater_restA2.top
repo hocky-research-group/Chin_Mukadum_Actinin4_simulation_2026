@@ -1,0 +1,69 @@
+;
+;	File 'actn4_CH1_pointedend_threeactin_ADP_gromacs.top' was generated
+;	By user: unknown (2879970)
+;	On host: cm013.hpc.nyu.edu
+;	At date: Fri Feb 21 15:12:26 2025
+;
+;	This is a standalone topology file
+;
+;	Created by:
+;	                    :-) GROMACS - gmx pdb2gmx, 2023.3 (-:
+;	
+;	Executable:   /ext3/apps/gromacs/2023.3/openmpi/intel/bin/gmx_mpi
+;	Data prefix:  /ext3/apps/gromacs/2023.3/openmpi/intel
+;	Working dir:  /scratch/fm1484/ACTN4/MAPS/setup/gromacs_setup_asis
+;	Command line:
+;	  gmx_mpi pdb2gmx -f ../pdb_files_c36/actn4_CH1_pointedend_dockingcombined_combined_ADP_chains.pdb -o ./actn4_CH1_pointedend_threeactin_ADP_gromacs.gro -p actn4_CH1_pointedend_threeactin_ADP_gromacs.top -i actn4_CH1_pointedend_threeactin_ADP_gromacs.itp
+;	Force field was read from current directory or a relative path - path added.
+;
+
+; Include forcefield parameters
+#include "./charmm36_aubin.ff/forcefield.itp"
+
+; Include chain topologies
+#include "actn4_CH1_pointedend_threeactin_ADP_gromacs_Protein_chain_A.itp"
+#include "actn4_CH1_pointedend_threeactin_ADP_gromacs_Ion_chain_N.itp"
+#include "actn4_CH1_pointedend_threeactin_ADP_gromacs_Ion_chain_M.itp"
+#include "actn4_CH1_pointedend_threeactin_ADP_gromacs_Protein_chain_B.itp"
+#ifdef POSRES_A2
+#include "actn4_CH1_pointedend_threeactin_ADP_gromacs_Protein_chain_B_pr.itp"
+#endif
+#include "actn4_CH1_pointedend_threeactin_ADP_gromacs_Ion_chain_N2.itp"
+#include "actn4_CH1_pointedend_threeactin_ADP_gromacs_Ion_chain_M2.itp"
+#include "actn4_CH1_pointedend_threeactin_ADP_gromacs_Protein_chain_C.itp"
+#include "actn4_CH1_pointedend_threeactin_ADP_gromacs_Ion_chain_N3.itp"
+#include "actn4_CH1_pointedend_threeactin_ADP_gromacs_Ion_chain_M3.itp"
+#include "actn4_CH1_pointedend_threeactin_ADP_gromacs_Protein_chain_D.itp"
+
+; Include water topology
+#include "./charmm36_aubin.ff/tip3p.itp"
+
+#ifdef POSRES_WATER
+; Position restraint for each water oxygen
+[ position_restraints ]
+;  i funct       fcx        fcy        fcz
+   1    1       1000       1000       1000
+#endif
+
+; Include topology for ions
+#include "./charmm36_aubin.ff/ions.itp"
+
+[ system ]
+; Name
+Protein in water
+
+[ molecules ]
+; Compound        #mols
+Protein_chain_A     1
+Ion_chain_N         1
+Ion_chain_M         1
+Protein_chain_B     1
+Ion_chain_N2        1
+Ion_chain_M2        1
+Protein_chain_C     1
+Ion_chain_N3        1
+Ion_chain_M3        1
+Protein_chain_D     1
+SOL         68985
+NA               113
+CL               70

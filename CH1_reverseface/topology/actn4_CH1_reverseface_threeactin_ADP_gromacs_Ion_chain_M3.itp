@@ -1,0 +1,33 @@
+;
+;	File 'actn4_CH1_reverseface_threeactin_ADP_gromacs_Ion_chain_M3.itp' was generated
+;	By user: unknown (2879970)
+;	On host: cm001.hpc.nyu.edu
+;	At date: Thu Aug 21 16:30:24 2025
+;
+;	This is a include topology file
+;
+;	Created by:
+;	                    :-) GROMACS - gmx pdb2gmx, 2023.3 (-:
+;	
+;	Executable:   /ext3/apps/gromacs/2023.3/openmpi/intel/bin/gmx_mpi
+;	Data prefix:  /ext3/apps/gromacs/2023.3/openmpi/intel
+;	Working dir:  /scratch/fm1484/ACTN4/MAPS/setup/gromacs_setup_asis_CH1_reverseface
+;	Command line:
+;	  gmx_mpi pdb2gmx -f ../pdb_files_c36/actn4_CH1_reverseface_combined_ADP_chains.pdb -o ./actn4_CH1_reverseface_threeactin_ADP_gromacs.gro -p actn4_CH1_reverseface_threeactin_ADP_gromacs.top -i actn4_CH1_reverseface_threeactin_ADP_gromacs.itp
+;	Force field was read from current directory or a relative path - path added.
+;
+
+[ moleculetype ]
+; Name            nrexcl
+Ion_chain_M3        3
+
+[ atoms ]
+;   nr       type  resnr residue  atom   cgnr     charge       mass  typeB    chargeB      massB
+; residue 382 MG  rtp MG   q +2.0
+     1         MG    382     MG     MG      1          2     24.305   ; qtot 2
+
+; Include Position restraint file
+#ifdef POSRES
+#include "actn4_CH1_reverseface_threeactin_ADP_gromacs_Ion_chain_M3_pr.itp"
+#endif
+
